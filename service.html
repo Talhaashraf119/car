@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Express Care Auto Garage</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        font-size: 28px;
+        border-radius: 50%; /* Ensures the button is round */
+        width: 60px;  /* Ensures the button is a circle */
+        height: 60px; /* Ensures the button is a circle */
+        padding: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .whatsapp-button:hover {
+        background-color: #128c7e;
+    }
+
+    .whatsapp-button i {
+        font-size: 24px;
+    }
+</style>
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-car me-3"></i>Express Care Auto Garage</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="service.html" class="nav-item nav-link active">Services</a>
+                <a href="customercare.html" class="nav-item nav-link ">Happiness Contract</a>
+
+                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-bg-2.jpg);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Services</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Services</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl service py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="mb-5">Explore Our Services</h1>
+            </div>
+            <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-4">
+                    <div class="nav w-100 nav-pills me-4">
+                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 active" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button">
+                            <i class="fa fa-car-side fa-2x me-3"></i>
+                            <h4 class="m-0">Electrical Services</h4>
+                        </button>
+                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button">
+                            <i class="fa fa-car fa-2x me-3"></i>
+                            <h4 class="m-0">Mechanical Servicing</h4>
+                        </button>
+                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button">
+                            <i class="fa fa-cog fa-2x me-3"></i>
+                            <h4 class="m-0">Denting & Painting</h4>
+                        </button>
+                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
+                            <i class="fa fa-snowflake fa-2x me-3"></i>
+                            <h4 class="m-0">AC Maintenance</h4>
+                        </button>
+                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-5" type="button">
+                            <i class="fa fa-spray-can fa-2x me-3"></i>
+                            <h4 class="m-0">Polishing & Detailing</h4>
+                        </button>
+                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-6" type="button">
+                            <i class="fa fa-oil-can fa-2x me-3"></i>
+                            <h4 class="m-0">Oil & Filter Change</h4>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="tab-content w-100">
+                        <!-- Electrical Services -->
+                        <div class="tab-pane fade show active" id="tab-pane-1">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 350px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-1.jpg"
+                                             style="object-fit: cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="mb-3">7 Years Of Experience In Electrical Services</h3>
+                                    <p class="mb-4">Our electrical services include advanced computer reprogramming, electrical system upgrades for enhanced performance and safety, and specialized services for luxury, classic, and high-performance vehicles. We use high-quality materials and OEM-approved parts, backed by competitive pricing and transparent estimates</p>
+            <p><i class="fa fa-check text-success me-3"></i>Battery and alternator diagnostics</p>
+            <p><i class="fa fa-check text-success me-3"></i>Wiring repair and replacement</p>
+            <p><i class="fa fa-check text-success me-3"></i>Advanced electrical system troubleshooting</p>
+            <p><i class="fa fa-check text-success me-3"></i>Installation of new electrical components</p>
+            <p><i class="fa fa-check text-success me-3"></i>Use of the latest tools for accurate repairs</p>
+            <p><i class="fa fa-check text-success me-3"></i>Affordable pricing and quick service</p>
+            
+                                 </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mechanical Servicing -->
+                        <div class="tab-pane fade" id="tab-pane-2">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 350px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-2.jpg"
+                                             style="object-fit: cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="mb-3">7 Years Of Experience In Mechanical Servicing</h3>
+                                    <p class="mb-4">Providing a range of mechanical services to ensure your vehicle is in top shape.our skilled mechanics provide a wide range of services to keep your vehicle running smoothly and efficiently. Our goal is to ensure your vehicle is in top shape, providing you with reliability, safety, and performance.
+                                    </p>
+            <p><i class="fa fa-check text-success me-3"></i>Engine diagnostics and repair</p>
+            <p><i class="fa fa-check text-success me-3"></i>Transmission service and repair</p>
+            <p><i class="fa fa-check text-success me-3"></i>Brake servicing and replacement</p>
+            <p><i class="fa fa-check text-success me-3"></i>Suspension system checks and repairs</p>
+            <p><i class="fa fa-check text-success me-3"></i>Use modern  tools for precise results</p>
+            <p><i class="fa fa-check text-success me-3"></i>Guaranteed quality and timely service</p>
+            
+                                 </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Denting & Painting -->
+                        <div class="tab-pane fade" id="tab-pane-3">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 350px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-3.jpg"
+                                             style="object-fit: cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="mb-3">7 Years Of Experience In Denting & Painting</h3>
+                                    <p class="mb-4">With 7 years of experience in auto servicing, our team provides reliable solutions.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Quality Servicing</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Precise dent removal and repair
+                                    </p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Impeccable painting and finishing
+                                    </p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Cutting-edge technology for  repairs
+
+                                    </p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Expert craftsmanship and attention to detail
+                                    </p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Affordable prices without hidden costs
+
+                                    </p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Quick turnaround without effect quality
+
+                                    </p>
+                                    <p><i class="fa fa-check text-success me-3"></i>State-of-the-art equipment for good result
+                                    </p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Competitive pricing and timely delivery
+                                    </p>
+                                 </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AC Maintenance -->
+                        <div class="tab-pane fade" id="tab-pane-4">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 350px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-4.jpg"
+                                             style="object-fit: cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="mb-3">7 Years Of Experience In AC Maintenance</h3>
+                                    <p class="mb-4">Providing top-quality AC maintenance to ensure your vehicle remains cool in all conditions.our experienced technicians ensure your vehicle's air conditioning system operates efficiently, providing a comfortable driving experience in all conditions.
+                                    </p>
+
+                                    <p><i class="fa fa-check text-success me-3"></i>Comprehensive AC diagnostics and repair</p>
+            <p><i class="fa fa-check text-success me-3"></i>Freon refills and leak detection</p>
+            <p><i class="fa fa-check text-success me-3"></i>Cabin air filter replacement</p>
+            <p><i class="fa fa-check text-success me-3"></i>Full system checks for optimal performance</p>
+            <p><i class="fa fa-check text-success me-3"></i>Latest technology for accurate repairs</p>
+            <p><i class="fa fa-check text-success me-3"></i>Competitive pricing with a focus on customer satisfaction</p>
+                                 </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Polishing & Detailing -->
+                        <div class="tab-pane fade" id="tab-pane-5">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 350px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-5.jpg"
+                                             style="object-fit: cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="mb-3">Expert Polishing & Detailing</h3>
+                                    <p class="mb-4">Transform your vehicle's appearance with our meticulous polishing and detailing services. Our skilled technicians use state-of-the-art equipment and premium products to restore your vehicle's showroom shine.
+                                    </p>
+            <p><i class="fa fa-check text-success me-3"></i>Expert interior and exterior detailing</p>
+            <p><i class="fa fa-check text-success me-3"></i>Scratch and swirl removal</p>
+            <p><i class="fa fa-check text-success me-3"></i>Paint protection and ceramic coating</p>
+            <p><i class="fa fa-check text-success me-3"></i>Premium waxing for a high-gloss finish</p>
+            <p><i class="fa fa-check text-success me-3"></i>State-of-the-art equipment for good results</p>
+            <p><i class="fa fa-check text-success me-3"></i>Attention to detail for every corner and surface</p>
+                                 </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Oil & Filter Change -->
+                        <div class="tab-pane fade" id="tab-pane-6">
+                            <div class="row g-4">
+                                <div class="col-md-6" style="min-height: 350px;">
+                                    <div class="position-relative h-100">
+                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-6.jpg"
+                                             style="object-fit: cover;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="mb-3">Reliable Oil & Filter Change</h3>
+                                    <p class="mb-4">Keep your engine running smoothly with our reliable oil and filter change services.Our experienced technicians use high-quality oils and filters to ensure your vehicle runs smoothly, efficiently, and safely.
+                                    </p>
+            <p><i class="fa fa-check text-success me-3"></i>High-quality oil for extended engine life</p>
+            <p><i class="fa fa-check text-success me-3"></i>Oil filter replacement to keep  engine clean</p>
+            <p><i class="fa fa-check text-success me-3"></i>Multi-point inspection included</p>
+            <p><i class="fa fa-check text-success me-3"></i>Timely and efficient service</p>
+            <p><i class="fa fa-check text-success me-3"></i>Expert technicians with years of experience</p>
+            <p><i class="fa fa-check text-success me-3"></i>Affordable pricing with no hidden costs</p>
+            
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Booking Start -->
+    <div class="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-6 py-5">
+                    <div class="py-5">
+                        <h1 class="text-white mb-4">Certified and Award Winning Car Repair Service Provider</h1>
+                        <p class="text-white mb-0">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
+                        <h1 class="text-white mb-4">Book For A Service</h1>
+                        <form action="https://formsubmit.co/talhaashraf119@gmail.com" method="POST">
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" name="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <select class="form-select border-0" name="service" style="height: 55px;" required>
+                                        <option selected>Select A Service</option>
+                                        <option value="Electrical Services">Electrical Services</option>
+                                        <option value="Mechanical Services">Mechanical Services</option>
+                                        <option value="Denting & Painting">Denting & Painting</option>
+                                        <option value="AC Maintenance">AC Maintenance</option>
+                                        <option value="Polishing & Detailing">Polishing & Detailing</option>
+                                        <option value="Oil & Filter Change">Oil & Filter Change</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date1" data-target-input="nearest">
+                                        <input type="text" name="service_date"
+                                            class="form-control border-0 datetimepicker-input"
+                                            placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control border-0" name="special_request" placeholder="Special Request" style="height: 55px;"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
+                                </div>
+                            </div>
+                        
+                            <!-- Hidden inputs for email subject and captcha -->
+                            <input type="hidden" name="_subject" value="New Booking Request">
+                            <input type="hidden" name="_captcha" value="false">
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Booking End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mb-5">Our Clients Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Inam Playz YT</h5>
+                    <p>customer</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Really Impressed. Very well Maintained Garage and Co-Operative Staff and Professional Too.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Sohail Aamir </h5>
+                    <p>customer</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Professional staff got my car fixed from them highly recommended.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Usman Rehmat</h5>
+                    <p>customer</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Very good service excellent work experience ❤</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Rana Ali</h5>
+                    <p>Client</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Excellent service</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6" style="width: 400px;">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Ras Al Khor Industrial Area 1.Dubai-UAE</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+971 55 810 8297        </p>
+                    <p class="mb-2 "><i class="fa fa-envelope me-2"></i>expresscareautogarage27@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Opening Hours</h4>
+                    <h6 class="text-light">Monday - Saturday:</h6>
+                    <p class="mb-4">08.00 AM - 08.00 PM</p>
+                    <h6 class="text-light">Sunday:</h6>
+                    <p class="mb-0">Closed</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="#">Electrical Services</a>
+                    <a class="btn btn-link" href="#">Mechanical Services</a>
+                    <a class="btn btn-link" href="#">Denting & painting</a>
+                    <a class="btn btn-link" href="#">AC Maintenance</a>
+                    <a class="btn btn-link" href="#">Oil & Filter Change</a>
+                    <a class="btn btn-link" href="#">Polishing & Detailing</a>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Express Care</a>, All Right Reserved.
+
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <a href="https://wa.me/971558108297" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

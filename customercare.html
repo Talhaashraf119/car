@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Express Care Auto Garage</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        font-size: 28px;
+        border-radius: 50%; /* Ensures the button is round */
+        width: 60px;  /* Ensures the button is a circle */
+        height: 60px; /* Ensures the button is a circle */
+        padding: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .whatsapp-button:hover {
+        background-color: #128c7e;
+    }
+
+    .whatsapp-button i {
+        font-size: 24px;
+    }
+     .price {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 15px 0;
+}
+
+.price .row {
+    padding: 0 15px;
+}
+
+.price .col-md-4 {
+    padding: 0;
+}
+
+.price .price-item {
+    position: relative;
+    margin-bottom: 30px;
+    background: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.price .featured-item {
+    box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+    z-index: 1;
+}
+
+.price .price-header {
+    padding: 45px 0 30px 0;
+}
+
+.price .price-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.price .price-header h2 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.price .price-header h2 span {
+    font-size: 25px;
+    line-height: 55px;
+}
+
+.price .price-item.featured-item h2,
+.price .price-item.featured-item h3 {
+    color: #E81C2E;
+}
+
+.price-body ul {
+    list-style: none; /* Removes default bullet points */
+    padding: 0;       /* Removes padding from the ul */
+    margin: 0;        /* Removes any margin from the ul */
+}
+
+.price-body li {
+    margin-bottom: 10px; /* Add spacing between list items */
+    display: flex;
+    align-items: center;  /* Align the icon and text vertically */
+}
+
+.price-body li i {
+    margin-right: 10px; /* Adds spacing between the icon and text */
+    color: green;       /* Change the color of the check icon */
+}
+
+/* Optional: Add padding to the container to create spacing inside it */
+.price-body {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.price .price-item .price-footer {
+    padding-bottom: 45px;
+}
+
+.price .price-item .price-footer .btn.btn-custom {
+    color: #E81C2E;
+    background: #202C45;
+    box-shadow: inset 0 0 0 0 #E81C2E;
+}
+
+.price .price-item .price-footer .btn.btn-custom:hover {
+    color: #ffffff;
+    background: #E81C2E;
+    box-shadow: inset 200px 0 0 0 #E81C2E;
+}
+
+.price .price-item.featured-item .price-footer .btn.btn-custom {
+    color: #ffffff;
+    background: #E81C2E;
+    box-shadow: inset 0 0 0 0 #202C45;
+}
+
+.price .price-item.featured-item .price-footer .btn.btn-custom:hover {
+    color: #E81C2E;
+    background: #202C45;
+    box-shadow: inset 200px 0 0 0 #202C45;
+}
+/* Fade-in effect on page load for the price items */
+.price-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.price-item.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover effect for price cards */
+.price-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-item:hover {
+    transform: scale(1.05); /* Slightly increase the size */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Optional: Different hover effect for featured item */
+.featured-item:hover {
+    transform: scale(1.08); /* Slightly larger scale for the featured item */
+    background-color: #f8f8f8;
+}
+
+/* Button hover effect */
+.btn-custom {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+
+</style>
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-car me-3"></i>Express Care Auto Garage</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="service.html" class="nav-item nav-link active">Services</a>
+                <a href="customercare.html" class="nav-item nav-link ">Happiness Contract</a>
+
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-bg-2.jpg);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Customer Happiness Service Contract</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Happiness Contract</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Service Start -->
+    <div class="price">
+        <div class="container">
+            <div class="section-header text-center">
+                <h1 style="font-size: 50px;margin-bottom: 50px;">Customer Happiness Service Contract</h1>
+                <h2>Choose Your Plan</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="price-item">
+                        <div class="price-header">
+                            <h3>Standard Contract</h3>
+                            <p>4 Cylinder</p>
+                            <h2><span>AED</span><strong>1,774</strong><span>.00</span></h2>
+                        </div>
+                        <div class="price-body">
+                            <ul>
+                                <li><i class="far fa-check-circle"></i>Cover 50.000 Km (No Annual) </li>
+                                <li><i class="far fa-check-circle"></i>3 Minor Services (Every 10,000 Km)</li>
+                                <li><i class="far fa-check-circle"></i>2 Major Services</li>
+                                <li><i class="far fa-check-circle"></i>10% Discount on Spare Parts</li>
+                                <li><i class="far fa-check-circle"></i>15% Discount on Labour Work Charges</li>
+                                <li><i class="far fa-check-circle"></i>10% Discount on Onsite Services</li>
+                                <li><i class="far fa-check-circle"></i>Unlimited Battery Boosting </li>
+                                <li><i class="far fa-check-circle"></i>24/7 Free Roadside Assistance</li>
+                                <li><i class="far fa-check-circle"></i>Total Quartz Oil 10,000 Km </li>
+                            </ul>
+                        </div>
+                        <div class="price-footer">
+                            <a class="btn btn-custom" href="https://wa.me/971558108297">Book Now</a>
+                        </div>
+                    </div>
+                 
+                </div>
+                <div class="col-md-4">
+                    <div class="price-item featured-item">
+                        <div class="price-header">
+                            <h3>STANDARD CONTRACT</h3>
+                            <p>6 Cylinder</p>
+                            <h2><span>AED</span><strong>2,774
+                            </strong><span>.00</span></h2>
+                        </div>
+                        <div class="price-body">
+                            <ul>
+                                <li><i class="far fa-check-circle"></i>Cover 50.000 Km (No Annual) </li>
+                                <li><i class="far fa-check-circle"></i>3 Minor Services (Every 10,000 Km)</li>
+                                <li><i class="far fa-check-circle"></i>2 Major Services</li>
+                                <li><i class="far fa-check-circle"></i>10% Discount on Spare Parts</li>
+                                <li><i class="far fa-check-circle"></i>15% Discount on Labour Work Charges</li>
+                                <li><i class="far fa-check-circle"></i>10% Discount on Onsite Services</li>
+                                <li><i class="far fa-check-circle"></i>Unlimited Battery Boosting </li>
+                                <li><i class="far fa-check-circle"></i>24/7 Free Roadside Assistance</li>
+                                <li><i class="far fa-check-circle"></i>Total Quartz Oil 10,000 Km </li>
+                            </ul>
+                        </div>
+                        <div class="price-footer">
+                            <a class="btn btn-custom" href="https://wa.me/971558108297">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-item">
+                        <div class="price-header">
+                            <h3>STANDARD CONTRACT</h3>
+                            <p>8 Cylinder</p>
+                            <h2><span>AED</span><strong>3,374</strong><span>.00</span></h2>
+                        </div>
+                        <div class="price-body">
+                            <ul>
+                                <li><i class="far fa-check-circle"></i>Cover 50.000 Km (No Annual) </li>
+                                <li><i class="far fa-check-circle"></i>3 Minor Services (Every 10,000 Km)</li>
+                                <li><i class="far fa-check-circle"></i>2 Major Services</li>
+                                <li><i class="far fa-check-circle"></i>10% Discount on Spare Parts</li>
+                                <li><i class="far fa-check-circle"></i>15% Discount on Labour Work Charges</li>
+                                <li><i class="far fa-check-circle"></i>10% Discount on Onsite Services</li>
+                                <li><i class="far fa-check-circle"></i>Unlimited Battery Boosting </li>
+                                <li><i class="far fa-check-circle"></i>24/7 Free Roadside Assistance</li>
+                                <li><i class="far fa-check-circle"></i>Total Quartz Oil 10,000 Km </li>
+                            </ul>
+                        </div>
+                        <div class="price-footer">
+                            <a class="btn btn-custom" href="https://wa.me/971558108297">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="price">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Choose Your Plan</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="price-item">
+                        <div class="price-header">
+                            <h3>PREMIUM CONTRACT</h3>
+                            <p>4 Cylinder</p>
+
+                            <h2><span>AED</span><strong>4,750</strong><span>.00</span></h2>
+                        </div>
+                        <div class="price-body">
+                            <ul>
+                                <li><i class="far fa-check-circle"></i>Cover 50.000 Km (No Annual) </li>
+                                <li><i class="far fa-check-circle"></i>5 Minor Services (Every 10,000 Km)</li>
+                                <li><i class="far fa-check-circle"></i>2 Major Services</li>
+                                <li><i class="far fa-check-circle"></i>15% Discount on Spare Parts</li>
+                                <li><i class="far fa-check-circle"></i>30% Discount on Labour Work Charges</li>
+                                <li><i class="far fa-check-circle"></i>20% Discount on Onsite Services</li>
+                                <li><i class="far fa-check-circle"></i>Unlimited Battery Boosting </li>
+                                <li><i class="far fa-check-circle"></i>24/7 Free Roadside Assistance</li>
+                                <li><i class="far fa-check-circle"></i>Total Quartz Oil 10,000 Km </li>
+                            </ul>
+                        </div>
+                        <div class="price-footer">
+                            <a class="btn btn-custom" href="https://wa.me/971558108297">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-item featured-item">
+                        <div class="price-header">
+                            <h3>PREMIUM CONTRACT</h3>
+                            <p>6 Cylinder</p>
+
+                            <h2><span>AED</span><strong>5,480</strong><span>.00</span></h2>
+                        </div>
+                        <div class="price-body">
+                            <ul>
+                                <li><i class="far fa-check-circle"></i>Cover 50.000 Km (No Annual) </li>
+                                <li><i class="far fa-check-circle"></i>5 Minor Services (Every 10,000 Km)</li>
+                                <li><i class="far fa-check-circle"></i>2 Major Services</li>
+                                <li><i class="far fa-check-circle"></i>15% Discount on Spare Parts</li>
+                                <li><i class="far fa-check-circle"></i>30% Discount on Labour Work Charges</li>
+                                <li><i class="far fa-check-circle"></i>20% Discount on Onsite Services</li>
+                                <li><i class="far fa-check-circle"></i>Unlimited Battery Boosting </li>
+                                <li><i class="far fa-check-circle"></i>24/7 Free Roadside Assistance</li>
+                                <li><i class="far fa-check-circle"></i>Total Quartz Oil 10,000 Km</li>
+                            </ul>
+                        </div>
+                        <div class="price-footer">
+                            <a class="btn btn-custom" href="https://wa.me/971558108297">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-item">
+                        <div class="price-header">
+                            <h3>PREMIUM CONTRACT</h3>
+                            <p>8 Cylinder</p>
+
+                            <h2><span>AED</span><strong>6,240</strong><span>.00</span></h2>
+                        </div>
+                        <div class="price-body">
+                            <ul>
+                                <li><i class="far fa-check-circle"></i>Cover 50.000 Km (No Annual) </li>
+                                <li><i class="far fa-check-circle"></i>5 Minor Services (Every 10,000 Km)</li>
+                                <li><i class="far fa-check-circle"></i>2 Major Services</li>
+                                <li><i class="far fa-check-circle"></i>15% Discount on Spare Parts</li>
+                                <li><i class="far fa-check-circle"></i>30% Discount on Labour Work Charges</li>
+                                <li><i class="far fa-check-circle"></i>20% Discount on Onsite Services</li>
+                                <li><i class="far fa-check-circle"></i>Unlimited Battery Boosting </li>
+                                <li><i class="far fa-check-circle"></i>24/7 Free Roadside Assistance</li>
+                                <li><i class="far fa-check-circle"></i>Total Quartz Oil 10,000 Km</li>
+                            </ul>
+                        </div>
+                        <div class="price-footer">
+                            <a class="btn btn-custom" href="https://wa.me/971558108297">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Booking End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mb-5">Our Clients Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Inam Playz YT</h5>
+                    <p>customer</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Really Impressed. Very well Maintained Garage and Co-Operative Staff and Professional Too.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Sohail Aamir </h5>
+                    <p>customer</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Professional staff got my car fixed from them highly recommended.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Usman Rehmat</h5>
+                    <p>customer</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Very good service excellent work experience ❤</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Rana Ali</h5>
+                    <p>Client</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Excellent service</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6" style="width: 400px;">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Ras Al Khor Industrial Area 1.Dubai-UAE</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+971 55 810 8297        </p>
+                    <p class="mb-2 "><i class="fa fa-envelope me-2"></i>expresscareautogarage27@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Opening Hours</h4>
+                    <h6 class="text-light">Monday - Saturday:</h6>
+                    <p class="mb-4">08.00 AM - 08.00 PM</p>
+                    <h6 class="text-light">Sunday:</h6>
+                    <p class="mb-0">Closed</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="#">Electrical Services</a>
+                    <a class="btn btn-link" href="#">Mechanical Services</a>
+                    <a class="btn btn-link" href="#">Denting & painting</a>
+                    <a class="btn btn-link" href="#">AC Maintenance</a>
+                    <a class="btn btn-link" href="#">Oil & Filter Change</a>
+                    <a class="btn btn-link" href="#">Polishing & Detailing</a>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Express Care</a>, All Right Reserved.
+
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <a href="https://wa.me/971558108297" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const priceItems = document.querySelectorAll('.price-item');
+        priceItems.forEach(item => {
+            setTimeout(() => {
+                item.classList.add('loaded');
+            }, 1000); // Adding a small delay
+        });
+    });
+    </script>
+</body>
+
+</html>
